@@ -121,3 +121,26 @@
     ```
 
 - On `server/index.js`, put `const UserModel = require('./models/Users');`
+
+## Get Data from MongoDB
+
+- On `server/index.js`
+
+  - ```js
+    ...
+    app.get('/getUsers', (req, res) => {
+      UserModel.find({}, (err, result) => {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(result);
+        }
+      });
+    });
+    ```
+
+- Install Thunder Client in vscode for testing API client
+
+  - Click New Request, enter `http://localhost:3001/getUsers`, and click Send
+
+  - Check the Response
