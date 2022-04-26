@@ -93,3 +93,31 @@
 
       mongoose.connect(process.env.MONGODB_CONNECTION);
       ```
+
+## Use MongoDB
+
+- Create `server/models/Users.js`
+
+  - ```js
+    const mongoose = require('mongoose');
+
+    const UserSchema = new mongoose.Schema({
+      name: {
+        type: String,
+        required: true,
+      },
+      age: {
+        type: Number,
+        required: true,
+      },
+      username: {
+        type: String,
+        required: true,
+      },
+    });
+    // 'users' from the collection name of MongoDB
+    const UserModel = mongoose.model('users', UserSchema);
+    module.exports = UserModel;
+    ```
+
+- On `server/index.js`, put `const UserModel = require('./models/Users');`
