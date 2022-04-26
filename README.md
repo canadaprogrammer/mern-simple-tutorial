@@ -144,3 +144,34 @@
   - Click New Request, enter `http://localhost:3001/getUsers`, and click Send
 
   - Check the Response
+
+## Post Data to MongoDB
+
+- On `server/index.js`
+
+  - ```js
+    app.use(express.json()); // this is for express having body data
+
+    app.post('/createUser', async (req, res) => {
+      const user = req.body;
+      const newUser = new UserModel(user);
+      await newUser.save();
+      res.json(user);
+    });
+    ```
+
+- On Thunder Client
+
+  - change the method to `POST` and enter `http://localhost:3001/createUser`
+
+  - click body, enter below code, and then click Send
+
+    - ```json
+      {
+        "name": "Tester",
+        "age": "21",
+        "username": "tester"
+      }
+      ```
+
+- Check MongoDB Compass if the data is posted
