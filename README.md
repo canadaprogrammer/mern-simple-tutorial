@@ -41,5 +41,9 @@
   cd ..
   git init
   touch .gitignore
-  echo server/mode_modules > .gitignore
+  echo server/node_modules > .gitignore
+  git add .
+  git commit -m 'create initial server'
+  git remote add origin [repository]
+  git push -u origin master
   ```
