@@ -175,3 +175,44 @@
       ```
 
 - Check MongoDB Compass if the data is posted
+
+## Create Initial React App
+
+- Cross-Origin Resource Sharing (CORS)
+
+  - Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. CORS also relies on a mechanism by which browsers make a "preflight" request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends headers that indicate the HTTP method and headers that will be used in the actual request.
+
+- On `server/index.js`
+
+  - ```js
+    const cors = require('cors'); // Allow to connect API with React
+
+    app.use(cors());
+    ```
+
+- axios: Promise based HTTP client for the browser and node.js
+
+- ```bash
+  mkdir client
+  cd client
+  npx create-react-app .
+  npm i axios
+  npm run start
+  ```
+
+- Remove below files to clean up
+
+  - `App.test.js`, `index.css`, `logo.svg`, and `setupTests.js` from `client/src`
+
+  - `README.md`
+
+- Remove git init from CRA
+
+  - ```bash
+    cd client
+    rm -rf .git
+    ```
+
+  - Copy the code form `client/.gitignore` and remove it
+
+  - On `.gitignore`, paste the code

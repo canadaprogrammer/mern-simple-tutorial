@@ -4,7 +4,10 @@ const app = express();
 const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
 
+const cors = require('cors');
+
 app.use(express.json()); // this is for express having body data
+app.use(cors()); // Allow to connect API with React
 
 mongoose.connect(process.env.MONGODB_CONNECTION);
 
